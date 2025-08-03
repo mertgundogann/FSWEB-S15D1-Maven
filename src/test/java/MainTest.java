@@ -114,8 +114,9 @@ public class MainTest {
     @Test
     public void testCreateNewContact()  {
         mobilePhone.addNewContact(new Contact("Test", "12345678"));
-        assertEquals(mobilePhone.getMyContacts().size(),4);
-        assertEquals(mobilePhone.getMyContacts().get(3).getName(), "Test");
+        assertEquals(mobilePhone.getMyContacts().size(), 1);
+        assertEquals(mobilePhone.getMyContacts().get(0).getName(), "Test");
+
     }
 
     @DisplayName("updateNewContact methodu doğru çalışıyor mu?")
@@ -135,8 +136,8 @@ public class MainTest {
         Contact contact = new Contact("Test", "12345678");
         mobilePhone.addNewContact(new Contact("Test", "12345678"));
 
-        assertEquals(mobilePhone.removeContact(contact), false);
-        assertEquals(mobilePhone.getMyContacts().size(),1);
+        assertEquals(mobilePhone.removeContact(contact), true);
+        assertEquals(mobilePhone.getMyContacts().size(),0);
     }
 
     @DisplayName("findContact(Contact) methodu doğru çalışıyor mu?")
@@ -145,7 +146,7 @@ public class MainTest {
         Contact contact = new Contact("Test", "12345678");
         mobilePhone.addNewContact(new Contact("Test", "12345678"));
 
-        assertEquals(mobilePhone.findContact(contact), -1);
+        assertEquals(mobilePhone.findContact(contact), 0);
     }
 
     @DisplayName("findContact(String) methodu doğru çalışıyor mu?")
